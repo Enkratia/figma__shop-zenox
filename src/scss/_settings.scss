@@ -1,0 +1,124 @@
+@use "./mixins" as m;
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  overflow-anchor: none;
+  margin: 0;
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  color: var(--color-dark);
+  background-color: var(--color-white);
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-container {
+  overflow: hidden;
+}
+
+.for-mobile {
+  display: none;
+}
+
+.error {
+  border: 2px solid #FF4019 !important;
+}
+
+button {
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @include m.xs {
+    padding: 0 15px;
+  }
+}
+
+.container-narrow {
+  max-width: 1406px;
+}
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+.main-link {
+  position: relative;
+  font-size: 15px;
+  color: var(--color-dark);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition: width .15s ease;
+  }
+
+  &--white {
+    color: var(--color-white);
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.to-top {
+  position: fixed;
+  right: 2%;
+  bottom: 5%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 14px 18px;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 5px 30px rgba(0,0,0,.1);
+  background-color: var(--color-white);
+  transition: transform .3s ease;
+
+  &:hover {
+    transform: rotate(360deg);
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}

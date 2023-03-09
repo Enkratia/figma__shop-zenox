@@ -1,0 +1,24 @@
+@forward "vars";
+@forward "mixins";
+@forward "fonts";
+@forward "vendor";
+@forward "settings";
+
+// Components
+@forward "components/header";
+@forward "components/nav";
+@forward "components/shop-nav";
+@forward "components/hero";
+@forward "components/banners";
+@forward "components/main-products";
+@forward "components/product";
+@forward "components/shop-banners";
+
+@forward "components/hero-catalog";
+@forward "components/breadcrumbs";
+@forward "components/catalog-filter";
+
+@forward "components/card";
+@forward "components/card-slider";
+
+@forward "components/footer";

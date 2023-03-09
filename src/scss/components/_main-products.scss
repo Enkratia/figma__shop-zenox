@@ -1,0 +1,135 @@
+@use "../mixins" as m;
+
+.main-products {
+
+  &__container {
+    padding-top: 55px;
+    padding-bottom: 40px;
+
+    @include m.md {
+      padding-bottom: 0;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    margin: 0 18px;
+
+    @include m.xs {
+      margin: 0 10px;
+    }
+  }
+
+  &__btn {
+    font-size: 24px;
+
+    &--current {
+      &::before {
+        width: 100%;
+      }
+    }
+
+    @include m.sm {
+      font-size: 20px;
+    }
+  }
+
+  &__btn-center {
+    text-align: center;
+  }
+
+  &__more {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 95px;
+    font-size: 13px;
+    color: var(--color-gray);
+
+    &:hover {
+      svg {
+        transform: translateY(5px);
+      }
+    }
+
+    span {
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    svg {
+      width: 12px;
+      height: 21px;
+      fill: var(--color-dark);
+      transition: transform .3s ease;
+    }
+
+    @include m.md {
+      margin-top: 0;
+    }
+  }
+}
+
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    margin-bottom: 80px;
+    width: 18.5%;
+
+    &:not(:nth-child(5n)) {
+      margin-right: 1.8%;
+
+      @include m.md {
+        margin-right: 5%;
+      }
+
+      @include m.xs {
+        margin-right: 4%;
+      }
+    }
+
+    &:not(:nth-child(-n+5)) {
+      margin-bottom: 0;
+
+      @include m.md {
+        margin-bottom: 50px;
+      }
+
+      @include m.xs {
+        margin-bottom: 30px;
+      }
+    }
+
+    &:nth-child(2n) {
+      @include m.xs {
+        margin-right: 0;
+      }
+    }
+
+    &:nth-child(3n) {
+      @include m.md {
+        margin-right: 0;
+      }
+
+      @include m.xs {
+        margin-right: 4%;
+      }
+    }
+
+    @include m.md {
+      margin-right: 5%;
+      width: 30%;
+    }
+
+    @include m.xs {
+      width: 48%;
+      margin-right: 4%;
+    }
+  }
+}

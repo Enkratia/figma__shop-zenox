@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+  <!--===== CSS =====-->
+  <link rel='stylesheet' href='./css/main.css'>
+
+  <!--===== JS =====-->
+  <script src='./js/main.js' defer></script>
+
+  <title>Catalog</title>
+</head>
+
+<body class="card-page">
+
+  <div class="site-container">
+    @include("html/header-catalog.html")
+
+    <main class="main">
+
+      <section class="card">
+        @include("html/breadcrumbs.html")
+
+        <div class="card-content">
+          <div class="card-content__top">
+            @include("html/card-top.html")
+          </div>
+          @include("html/card-bottom.html")
+        </div>
+      </section>
+    </main>
+
+    @include("html/footer2.html")
+
+    <a href="#" class="to-top">
+      <svg xmlns='http://www.w3.org/2000/svg'>
+        <use href='./img/svg/sprite.svg#totop'></use>
+      </svg>
+    </a>
+  </div>
+
+</body>
+
+</html>

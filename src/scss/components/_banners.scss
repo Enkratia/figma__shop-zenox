@@ -1,0 +1,73 @@
+@use "../mixins" as m;
+
+.banners {
+
+  &__container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @include m.xs {
+      padding-bottom: 0;
+    }
+  }
+  
+  &__list {
+    display: flex;
+
+    @include m.md {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
+    width: 33%;
+
+    &:not(:last-child) {
+      margin-right: .6%;
+    }
+
+    @include m.md {
+      margin-right: 0;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  }
+}
+
+.banners-article {
+  padding: 54px 60px;
+  padding-right: 56%;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #E9E4DF;
+
+  &--midseason {
+    background-image: url(../img/midseason.jpg);
+  }
+
+  &--summer {
+    background-image: url(../img/summer.jpg);
+  }
+
+  &--accs {
+    background-image: url(../img/accs.jpg);
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 36px;
+
+    @include m.md {
+      background-position: calc(100% + 120px) center;
+    }
+
+    @include m.sm {
+      padding-right: 150px;
+    }
+  }
+}

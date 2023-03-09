@@ -1,0 +1,82 @@
+@use "../mixins" as m;
+
+.shop-banners {
+  padding-top: 45px;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+
+    @include m.xs {
+      flex-direction: column;
+    }
+  }
+}
+
+.shop-banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  min-height: 420px;
+  color: var(--color-white);
+  padding: 20px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--color-dark);
+
+  &::before { 
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(#D70808, .1);
+  }
+
+  &--men {
+    background-image: url("../img/banner-1.jpg");
+  }
+
+  &--women {
+    background-image: url("../img/banner-2.jpg");
+  }
+
+  &__title {
+    position: inherit;
+    z-index: 1;
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-weight: 500;
+
+    @include m.md {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    @include m.sm {
+      font-size: 28px;
+    }
+  }
+
+  &__text {
+    position: inherit;
+    z-index: 1;
+  }
+
+  @include m.md {
+    padding: 30px;
+    min-height: 300px;
+  }
+
+  @include m.xs {
+    width: 100%;
+    min-height: 250px;
+  }
+}

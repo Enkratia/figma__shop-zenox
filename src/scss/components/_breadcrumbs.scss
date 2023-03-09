@@ -1,0 +1,96 @@
+@use "../mixins" as m;
+
+.breadcrumbs {
+
+  &__list {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #EEE;
+    padding-top: 36px;
+    padding-bottom: 26px;
+  }
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 35px;
+
+      &::after {
+        content: "/";
+        position: absolute;
+        top: 50%;
+        right: -20px;
+        font-size: 10px;
+        color: var(--color-gray);
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__link {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--color-gray);
+    transition: color .3s;
+
+    &:hover {
+      color: var(--color-dark);
+    }
+
+    &--current {
+      color: var(--color-dark);
+    }
+  }
+}
+
+.breadcrumbs .card-prev,
+.breadcrumbs .card-next {
+  display: none;
+}
+
+.card {
+  .breadcrumbs .card-prev,
+  .breadcrumbs .card-next {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--color-gray);
+    transition: color .3s;
+    
+    &:hover {
+      color: var(--color-dark);
+    }
+  }
+
+  .breadcrumbs .container {
+    display: flex;
+    align-items: center;
+
+    @include m.xs {
+      flex-wrap: wrap;
+    }
+  }
+
+  .breadcrumbs__list {
+    border-bottom: none;
+
+    @include m.xs {
+      margin-bottom: 0;
+      width: 100%;  
+    }
+  }
+
+  .card-prev {
+    margin-left: auto;
+
+    @include m.xs {
+      margin-left: 0;
+    }
+  }
+
+  .card-next {
+    margin-left: 20px;
+  }
+}

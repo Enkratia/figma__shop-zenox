@@ -1,0 +1,225 @@
+@use "../../../node_modules/swiper/swiper.min.css";
+@use "../../../node_modules/swiper/modules/pagination/pagination.min.css";
+@use "../../../node_modules/swiper/modules/navigation/navigation.min.css";
+@use "../mixins" as m;
+
+.hero {
+  height: 100vh;
+  height: 1080px;
+  background-color: var(--quill-gray);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__container {
+    position: relative;
+    height: 100%;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 40px;
+    max-width: 560px;
+    font-weight: 700;
+    font-size: 72px;
+
+    @include m.lg {
+      padding-inline: 100px;
+    }
+
+    @include m.lg {
+      padding-inline: 0;
+      max-width: 500px;
+      font-size: 50px;
+    }
+
+    @include m.xs {
+      font-size: 45px;
+    }
+  }
+
+  &__descr {
+    margin: 0;
+    font-size: 18px;
+
+    @include m.lg {
+      font-size: 14px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    max-height: 90%;
+    right: 273px;
+    bottom: 0;
+
+    @include m.lg-max {
+      right: 100%;
+      width: 480px;
+    }
+
+    @include m.lg {
+      right: 50px;
+    }
+
+    @include m.md {
+      right: 0;
+      width: 350px;
+    }
+
+    @include m.sm {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 260px;
+    height: 100%;
+
+    @include m.lg {
+      padding-inline: 100px;
+    }
+
+    @include m.md {
+      padding: 0;
+    }
+  }
+
+  @include m.lg-max {
+    height: 700px;
+  }
+
+  @include m.md {
+    height: 600px;
+    min-height: auto;
+  }
+}
+
+.banner-slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .swiper-slide {
+    position: relative;
+    height: 100%;
+  }
+
+  .banner-pag {
+    left: 50% !important;
+    bottom: 46px;
+    transform: translateX(-50%);
+
+    .swiper-pagination-bullet {
+      margin: 0 12px !important;
+      width: 6px;
+      height: 6px;
+      background-color: var(--color-white);
+      opacity: .5;
+
+      &::before {
+        pointer-events: none
+      }
+
+      &-active {
+        position: relative;
+        background-color: var(--color-dark);
+        opacity: 1;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          z-index: -1;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          background-color: var(--color-white);
+          transform: translate(-50%, - 50%);
+        }
+      }
+    }
+  }
+}
+
+.marketing {
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
+  z-index: 10;
+  display: flex;
+  padding: 10px;
+  width: 280px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .1);
+  background-color: var(--color-white);
+  transform: translateX(-150vw);
+  transition: transform .3s ease;
+
+  &--visible {
+    transform: translateX(0);
+  }
+
+  &__image {
+    flex-shrink: 0;
+
+    >img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__text {
+    margin-left: 10px;
+  }
+
+  &__descr {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 11px;
+    color: var(--color-gray);
+  }
+
+  &__title {
+    margin: 0;
+    min-height: 34px;
+    margin-bottom: 7px;
+    padding-right: 20px;
+    font-size: 15px;
+  }
+
+  &__when-from {
+    display: block;
+    padding-right: 40px;
+    font-size: 11px;
+    color: var(--color-gray);
+  }
+
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    background-image: url("../img/close.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @include m.lg {
+    left: 15px;
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  
+  <!--===== CSS =====-->
+  <link rel='stylesheet' href='./css/main.css'>
+
+  <!--===== JS =====-->
+  <script src='./js/main.js' defer></script>
+  
+  <title>Catalog</title>
+</head>
+<body>
+
+<div class="site-container">
+  <div class="free-delivery">
+    Free delivery from $60 and free returns
+  
+    <button class="free-delivery__btn btn-reset">
+      <svg xmlns='http://www.w3.org/2000/svg'>
+        <use href='./img/svg/sprite.svg#close'></use>
+      </svg>
+    </button>
+  </div>
+  
+  @include("html/header-catalog.html")
+
+  <main class="main">
+    @include("html/hero-catalog.html")
+
+    <section class="catalog">
+      @include("html/breadcrumbs.html")
+
+      <div class="catalog-content">
+        <div class="catalog-content__container container container-narrow">
+          @include("html/catalog-filter.html")
+          @include("html/catalog-grid.html")
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  @include("html/footer2.html")
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+@use "../mixins" as m;
+
+.card-slider {
+  display: flex;
+
+  &__thumbs {
+    @include m.xs {
+      display: flex;
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+  }
+
+  &__thumb {
+    cursor: pointer;
+
+    img {
+      pointer-events: none;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    @include m.xs {
+      flex-shrink: 0;
+      margin-bottom: 0 !important;
+
+      &:not(:last-child) {
+        margin-right: 5px !important;
+      }
+    }
+  }
+
+  &__main {
+    margin-left: 15px;
+    width: 686px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @include m.xs {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  @include m.xs {
+    flex-direction: column-reverse;
+  }
+}
